@@ -1,0 +1,151 @@
+.site-header{
+	padding : 10px 0 ;
+	position: absolute;
+	width : 100%;
+	z-index: 2;
+	transition: background-color .3s ease-out;
+	
+	&--is-expanded{
+	   background-color: rgba($mainBlue,.55);	
+	}
+
+	@mixin atMedium{
+/*	background-color: rgba(47,85,114,.3);*/
+/* that we added postcss-hexrgba */
+	background-color: rgba($mainBlue,.3);
+		
+	}
+
+
+	&__btn-container{
+         @mixin atMedium {
+		float: right;
+	   }
+	}
+	
+	
+      &__logo{
+	   position: absolute;  
+	   top: 0;
+	   left: 50%;
+	   transform: translateX(-50%) scale(.8);
+	   transform-origin: 50% 0;
+         background-color: $mainBlue;	
+/* XX        padding : 13px 29px ; */
+          padding: 25px 36px;
+  
+        @mixin atMedium {
+		  left: auto;
+		  transform: translateX(0);
+/*XX		  padding : 25px 36px ; */
+             
+	  }
+		
+	}	
+/* XX */	
+	&__logo__graphic {
+		text-indent: -9999px;
+	}
+	
+	
+	&__menu-icon{
+		width: 20px;
+            height: 19px;
+/* comment out the backgroun-color, and the click box stills works just not visible */
+/*		background-color : #FFF; */
+		position: absolute;
+		z-index: 10;
+		top: 10px;
+		right: 10px ;
+/*create the hamburger lines/icon for small window click */		
+/*		&__top{      previous line that worked*/
+/* change to top to  & to use parent's selector. create pseudo element to be like top */
+            &::before{
+		  content: "";
+		  position: absolute;
+              top:0;
+              left:0;
+		  width : 20px;
+		  height: 3px;
+		  background-color: #FFF;
+		  transform-origin: 0 0;
+		  transition: transform .3s ease-out;
+		}
+	     
+	     	&__middle{
+		  position: absolute;
+              top: 8px;
+              left:0;
+		  width : 20px;
+		  height: 3px;
+		  background-color: #FFF;
+		  transition: all .3s ease-out;
+		  transform-origin: 0 50%
+		}
+	     
+/*was 	     	&__bottom{  */
+            &::after{
+		  content: "";
+		  position: absolute;
+              bottom: 0;
+              left:0;
+		  width : 20px;
+		  height: 3px;
+		  background-color: #FFF;
+		  transform-origin: 0 100%;
+		  transition: transform .3s ease-out;
+		}	     
+	     
+	      @mixin atMedium{
+			display: none;
+		}
+		
+	}
+/*create an X when someone clicks the hamburger in small screen */	
+	&__menu-icon--close-x {
+		&::before {
+		   transform: rotate(45deg) scaleX(1.25);
+		}
+		
+	.site-header__menu-icon__middle{
+		opacity:0;
+		transition: scaleX(0);
+		
+	      }	
+		
+		&::after {
+		   transform: rotate(-45deg) scaleX(1.25) translateY(1px);	
+		}
+	}
+	
+	
+	&__menu-content {
+/* before we had   display: none; but now want to transition */
+	   opacity : 0;
+	   transform: scale(1.2);
+	   transition: all .3s ease-out;
+/* because we are adding transition, the code is still behind just not visile. and to avoid someone clicking */
+/* on it, we set the z-index to a large -number so that it is not accessible*/
+          position: relative;
+	   z-index: -10;
+
+	    padding-top: 90px;
+	    text-align: center;
+   	    
+	   @mixin atMedium{
+		   opacity: 1;
+		   z-index: 1;
+		   padding-top: 0;
+		   transform: scale(1) ;
+		   
+	   }	
+	   
+	 &--is-visible{
+/* before, but now we want to transition 	display: block; */
+	     opacity: 1;
+	     z-index: 1;
+	     transform: scale(1); 
+	   }
+	}
+	
+}
