@@ -1,4 +1,6 @@
 import '../styles/styles.css'
+//section 18.54 lazyloading
+  import 'lazysizes'
 //alert("Hello this is just a testvvvv")
 import MobileMenu from './modules/MobileMenu';
 import RevealOnScroll from './modules/RevealOnScroll'
