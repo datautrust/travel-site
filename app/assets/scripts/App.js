@@ -7,6 +7,8 @@ import RevealOnScroll from './modules/RevealOnScroll'
 import StickyHeader from './modules/StickyHeader'
 // remove: import Modal from './modules/Modal'
 // remove: new Modal()
+//dummy comment 2
+//alert("hello, this is a test after ocnfiguring for dev and prod ")
 
 //sec 18.53: since we won't use the varialbe stickyHeader,the don't need to make it a var: 
 //"let stickyHeader = new StickyHeader();
@@ -28,9 +30,10 @@ document.querySelectorAll(".open-modal").forEach(el => {
 		      if (typeof modal =="undefined") {
 	// the import below will show up as 0.bundle.js in dev tools/network. to alter name do:
 	// add the comment and webpack name 
-		      	import(/*webpackChunkName: "modal-JL" */'./modules/Modal').then( x => {
+		      	import(/* webpackChunkName: "modal-JL" */ './modules/Modal').then( x => {
 				   modal = new x.default()
-	//			   setTimeout( () =>  modal.openTheModal(),20 )
+				   setTimeout( () =>  modal.openTheModal(),20 )
+	
 				
 			      }).catch( () => console.log("in importing modal code. There is a problem"))
 		       } else {
