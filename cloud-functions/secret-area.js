@@ -1,8 +1,8 @@
 exports.handler = function(event,context,callback) {
-/*this is the good code to run cloud functions on netlify. the code below is to test locally Sec 20.64 CORS soln
+/*this is the good code to run cloud functions on netlify. the code below is to test locally Sec 20.64 CORS soln */
 	let body
 	const  secretContent = `
-	 <h3> Welcome ot the scret area </h3>
+	 <h3> Welcome ot the secret area :) </h3>
 	 <p>here we can tell you the sky is <strong>blue</strong>. </p>
 	`
 	if (event.body) {
@@ -24,10 +24,10 @@ exports.handler = function(event,context,callback) {
 		})
 	}
 	
- end code for using netlify to test*/
+/* end code for using netlify to test*/
  
  // local test code
-  const headers = {
+ /* const headers = {
     "Access-Control-Allow-Origin" : "*",
     "Access-Control-Allow-Headers" : "Content-Type"
   }
@@ -66,6 +66,6 @@ exports.handler = function(event,context,callback) {
     })
   }
  
- 
+ */
  
 }
