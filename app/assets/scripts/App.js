@@ -10,6 +10,9 @@ import StickyHeader from './modules/StickyHeader'
 //dummy comment 2
 //alert("hello, this is a test after ocnfiguring for dev and prod ")
 
+import ClientArea from './modules/ClientArea.js'
+new ClientArea()
+
 //sec 18.53: since we won't use the varialbe stickyHeader,the don't need to make it a var: 
 //"let stickyHeader = new StickyHeader();
 new StickyHeader();
